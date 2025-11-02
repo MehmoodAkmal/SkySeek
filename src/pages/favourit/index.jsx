@@ -10,11 +10,14 @@ import { MdOutlineVerticalAlignCenter } from "react-icons/md";
 import { PiMountainsFill } from "react-icons/pi";
 import { SlGraph } from "react-icons/sl";
 import { TbRulerMeasure } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const Favourite = () => {
   const [list, setList] = useState([]);
   const [planet, setPlanet] = useState();
+
+  const navigat = useNavigate();
 
   const handleFavouritList = async () => {
     try {
@@ -88,6 +91,25 @@ const Favourite = () => {
   useEffect(() => {
     handleFavouritList();
   }, []);
+
+  if (!list.length) {
+    return (
+      <div className="w-full h-screen bg-gradient-to-br from-stone-900 via-blue-900 to-stone-900">
+        <div className="w-full h-full bg-black/60 flex flex-col items-center justify-center">
+          <h1 className="w-[90%] md:w-[65%] text-xl font-space text-slate-50 text-center">
+            Opps! You don't have favourit Planets in your favourit list. Go to
+            discover planets and add to favourit
+          </h1>
+          <button
+            onClick={() => navigat("/planets")}
+            className="bg-blue-500 text-xl text-slate-50 font-semibold font-space px-3 py-2 mt-4 rounded-2xl"
+          >
+            Discover Planets
+          </button>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="w-full h-screen bg-gradient-to-bl from-[#0B0C28] via-[#061a41] to-[#0B0C28]">
       {/* Overlaping Glass */}

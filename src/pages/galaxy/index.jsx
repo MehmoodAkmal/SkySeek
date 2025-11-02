@@ -46,8 +46,8 @@ const Galaxy = () => {
       <div className="w-full h-screen bg-black/60 z-[100] absolute flex items-center justify-center">
         {loading ? (
           <img
-            src="/earth.png"
-            className="w-[150px] animate-[spin_30s_linear_infinite]"
+            src="/earth-19822_256.gif"
+            className="animate-[spin_30s_linear_infinite]"
           />
         ) : (
           <div className="z-[100] w-full h-full p-4 md:p-6 flex flex-col gap-10 hover:shadow-[0_0_40px_cyan]/50 transition duration-500 overflow-hidden overflow-y-scroll">

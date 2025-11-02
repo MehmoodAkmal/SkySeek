@@ -40,9 +40,9 @@ const CompareResult = () => {
     return (
       <div className="w-full h-screen flex items-center justify-center bg-gradient-to-b from-blue-950 to-stone-950">
         <img
-          src="/earth.png"
+          src="/earth-19822_256.gif"
           alt="Loading"
-          className="w-[100px] animate-spin-slow"
+          className="animate-spin-slow"
         />
       </div>
     );

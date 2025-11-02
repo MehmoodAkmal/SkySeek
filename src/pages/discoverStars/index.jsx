@@ -44,8 +44,8 @@ const Stars = () => {
       {loading ? (
         <div className="w-full h-screen bg-black/70 flex items-center justify-center">
           <img
-            src="/earth.png"
-            className="w-[150px] animate-[spin_30s_linear_infinite]"
+            src="/earth-19822_256.gif"
+            className="animate-[spin_30s_linear_infinite]"
           />
         </div>
       ) : (

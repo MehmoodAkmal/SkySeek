@@ -42,8 +42,8 @@ const ComparePlanets = () => {
     return (
       <div className="w-full h-screen flex items-center justify-center bg-gradient-to-b from-blue-950 to-stone-900">
         <img
-          src="/earth.png"
-          className="w-[100px] animate-spin-slow"
+          src="/earth-19822_256.gif"
+          className="animate-spin-slow"
           alt="Loading"
         />
       </div>

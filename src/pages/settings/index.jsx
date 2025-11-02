@@ -30,7 +30,6 @@ const Settings = () => {
   return (
     <div className="relative min-h-screen bg-gradient-to-bl from-stone-900 via-blue-900 to-stone-900 overflow-hidden">
       <StarryBackground />
-      <FloatingMenu />
 
       {/* ✨ Glowing floating circles */}
       <div className="absolute top-20 left-10 w-36 h-36 bg-cyan-400/20 blur-[100px] rounded-full animate-[pulse_6s_ease-in-out_infinite]"></div>
@@ -51,7 +50,7 @@ const Settings = () => {
         </div>
 
         {/* 🧩 Settings Cards */}
-        <div className="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 z-20">
+        <div className="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 z-20">
           {settingsItems.map((item, i) =>
             item.external ? (
               <a

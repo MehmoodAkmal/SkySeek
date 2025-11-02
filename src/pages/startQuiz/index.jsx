@@ -26,7 +26,10 @@ const StartQuiz = () => {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
-      if (response.status) setQuiz(response.data);
+      if (response.status) {
+        setQuiz(response.data);
+        localStorage.setItem(`quiz_${level}`, JSON.stringify(response.data));
+      }
     } catch (error) {
       toast.error(error?.response?.data?.message || "Failed to load quiz");
     }
@@ -41,15 +44,26 @@ const StartQuiz = () => {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
-      if (response.status === 201) navigate("/home");
+
+      if (response.status === 201) {
+        toast.success("Quiz result saved successfully");
+        localStorage.removeItem(`quiz_${level}`);
+        navigate("/home");
+      }
     } catch (error) {
       toast.error(error?.response?.data?.message);
     }
   };
 
+  // ✅ Load quiz from localStorage if available
   useEffect(() => {
-    handleQuiz();
-  }, []);
+    const storedQuiz = localStorage.getItem(`quiz_${level}`);
+    if (storedQuiz) {
+      setQuiz(JSON.parse(storedQuiz));
+    } else {
+      handleQuiz();
+    }
+  }, [level]);
 
   const handleOptionChange = (value) => {
     setAnswers((prev) => ({ ...prev, [currentIndex]: value }));
@@ -95,8 +109,10 @@ const StartQuiz = () => {
 
   if (!quiz.length)
     return (
-      <div className="w-full h-screen flex items-center justify-center bg-black text-white">
-        Loading Quiz...
+      <div className="w-full h-screen flex items-center justify-center bg-linear-to-bl from-stone-950 via-blue-900 to-stone-950">
+        <div className="w-full h-full bg-black/70 flex items-center justify-center">
+          <img src="/earth-19822_256.gif" alt="" />
+        </div>
       </div>
     );
 
